@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.regex.Pattern;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class CreateUserAccountActivity extends AppCompatActivity {
 
@@ -70,15 +71,33 @@ public class CreateUserAccountActivity extends AppCompatActivity {
                     //open database
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-                    //phone number convert to int
-                    Integer phoneNumInt = Integer.parseInt(editTxtPhoneNum.getText().toString());
+//                    //phone number convert to int
+//                    Integer phoneNumInt = Integer.parseInt(editTxtPhoneNum.getText().toString());
+
+                    //encrypted password
+                    String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
                     ContentValues values = new ContentValues();
-                    values.put("firstName", firstName);
-                    values.put("lastName", lastName);
+                    values.put("first_name", firstName);
+                    values.put("last_name", lastName);
                     values.put("email", email);
-                    values.put("phoneNumber", phoneNumInt);
+                    values.put("phone_number", phoneNum);
                     values.put("address", address);
+                    values.put("password", hashedPassword);
+
+                    //inserting data into the database
+                    long newRowId = db.insert("users", null, values);
+
+//                    db.close();
+
+                    String msg;
+                    if( newRowId != -1){
+                        msg = "Registration successful!";
+                    }
+                    else{
+                        msg = "Registration failed!";
+                    }
+                    Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
                 }
 
