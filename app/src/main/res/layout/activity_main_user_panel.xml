@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainUserPanel">
+
+    <ImageButton
+        android:id="@+id/offerBtnThree"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/offerBtnTwo"
+        app:layout_constraintTop_toTopOf="@+id/offerBtnTwo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/orchid" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:text="Orchids"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/offerBtnThree"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/offerBtnThree"
+        app:layout_constraintTop_toBottomOf="@+id/offerBtnThree" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:text="Tulips"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/offerBtnTwo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/offerBtnTwo"
+        app:layout_constraintTop_toBottomOf="@+id/offerBtnTwo" />
+
+    <ImageButton
+        android:id="@+id/offerBtnTwo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/offerBtnOne"
+        app:layout_constraintStart_toEndOf="@+id/offerBtnOne"
+        app:layout_constraintTop_toTopOf="@+id/offerBtnOne"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/tulip" />
+
+    <TextView
+        android:id="@+id/activeUserName2"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Offers"
+        android:textColor="#231158"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/activeUserName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/activeUserName"
+        app:layout_constraintTop_toBottomOf="@+id/activeUserName" />
+
+    <TextView
+        android:id="@+id/activeUserName"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Hello There, Vishwa"
+        android:textColor="#4F4FA0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/offerBtnOne"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/activeUserName2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/activeUserName2"
+        app:layout_constraintTop_toBottomOf="@+id/activeUserName2"
+        app:srcCompat="@drawable/roses" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:text="Roses"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/offerBtnOne"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="@+id/offerBtnOne"
+        app:layout_constraintTop_toBottomOf="@+id/offerBtnOne" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="330dp"
+        android:layout_height="214dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <Button
+            android:id="@+id/newbabyCategoryBtn"
+            android:layout_width="100dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="15dp"
+            android:backgroundTint="#231158"
+            android:text="New Baby Blossoms"
+            android:textSize="12sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/valentineCategoryBtn"
+            app:layout_constraintStart_toEndOf="@+id/valentineCategoryBtn"
+            app:layout_constraintTop_toTopOf="@+id/valentineCategoryBtn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/valentineCategoryBtn"
+            android:layout_width="100dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="15dp"
+            android:backgroundTint="#231158"
+            android:text="Valentine's Day Romance"
+            android:textSize="12sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/funeralCategoryBtn"
+            app:layout_constraintStart_toEndOf="@+id/funeralCategoryBtn"
+            app:layout_constraintTop_toTopOf="@+id/funeralCategoryBtn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/funeralCategoryBtn"
+            android:layout_width="100dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#231158"
+            android:text="Funeral Flowers"
+            android:textSize="12sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/birthdayCategoryBtn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/birthdayCategoryBtn"
+            app:layout_constraintTop_toBottomOf="@+id/birthdayCategoryBtn" />
+
+        <Button
+            android:id="@+id/graduationCategoryBtn"
+            android:layout_width="100dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="15dp"
+            android:backgroundTint="#231158"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Graduation Glory"
+            android:textSize="12sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/AnninCategoryBtn"
+            app:layout_constraintStart_toEndOf="@+id/AnninCategoryBtn"
+            app:layout_constraintTop_toTopOf="@+id/AnninCategoryBtn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/AnninCategoryBtn"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="15dp"
+            android:backgroundTint="#231158"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Anniversary Elegance"
+            android:textSize="12sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/birthdayCategoryBtn"
+            app:layout_constraintStart_toEndOf="@+id/birthdayCategoryBtn"
+            app:layout_constraintTop_toTopOf="@+id/birthdayCategoryBtn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/activeUserName3"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:text="Categories"
+            android:textColor="#231158"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-1dp" />
+
+        <Button
+            android:id="@+id/birthdayCategoryBtn"
+            android:layout_width="100dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#231158"
+            android:text="Birthday Blooms"
+            android:textSize="12sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activeUserName3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/viewMoreFlowerBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#231158"
+        android:text="View more flowers"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
