@@ -60,7 +60,8 @@ public class UserLoginActivity extends AppCompatActivity {
                 } else if (checkUserCredentials(username, password)) {
                     String msg = "login Successfully!";
                     Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(),MainUserPanel.class);
+                    Intent intent = new Intent(getApplicationContext(), MainUserPanelActivity.class);
+                    intent.putExtra("loggedUser", username);
                     startActivity(intent);
                 }
                 else{
