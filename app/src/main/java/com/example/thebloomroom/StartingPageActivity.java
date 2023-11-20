@@ -9,19 +9,31 @@ import android.widget.Button;
 
 public class StartingPageActivity extends AppCompatActivity {
 
-    Button button;
+    Button customerTypeBtn, adminTypeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting_page);
 
-        button = findViewById(R.id.typeCusBtn);
-        button.setOnClickListener(new View.OnClickListener() {
+        customerTypeBtn = findViewById(R.id.typeCusBtn);
+        adminTypeBtn = findViewById(R.id.typeAdminBtn);
+
+
+        customerTypeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent cusLoginMenuActivity = new Intent(getApplicationContext(),UserLoginActivity.class);
                 startActivity(cusLoginMenuActivity);
+            }
+        });
+
+
+        adminTypeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent adminLoginActivity = new Intent(getApplicationContext(), AdminLoginActivity.class);
+                startActivity(adminLoginActivity);
             }
         });
 

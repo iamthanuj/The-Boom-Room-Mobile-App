@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFlowersActivity">
+
+
+    <EditText
+        android:id="@+id/flowerColorValue"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Color"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/flowerNameValue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/flowerNameValue"
+        app:layout_constraintTop_toBottomOf="@+id/flowerNameValue" />
+
+    <EditText
+        android:id="@+id/flowerPriceValue"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Price"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/flowerDescriptionValue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/flowerDescriptionValue"
+        app:layout_constraintTop_toBottomOf="@+id/flowerDescriptionValue" />
+
+    <EditText
+        android:id="@+id/flowerDescriptionValue"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Mini Description"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/flowerColorValue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/flowerColorValue"
+        app:layout_constraintTop_toBottomOf="@+id/flowerColorValue" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="Add Flower"
+        android:textColor="#231158"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/flowerNameValue"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="Flower Name"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/addflowerItemBtn"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#231158"
+        android:text="Add Flower"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/flowerPriceValue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/flowerPriceValue"
+        app:layout_constraintTop_toBottomOf="@+id/flowerPriceValue" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -92,7 +92,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/offerPlaceOrderBtn"
+        android:id="@+id/addflowerItemBtn"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -114,8 +114,8 @@
         android:text="Cancel Order"
         android:textSize="20sp"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/offerPlaceOrderBtn"
+        app:layout_constraintEnd_toEndOf="@+id/addflowerItemBtn"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/offerPlaceOrderBtn"
-        app:layout_constraintTop_toBottomOf="@+id/offerPlaceOrderBtn" />
+        app:layout_constraintStart_toStartOf="@+id/addflowerItemBtn"
+        app:layout_constraintTop_toBottomOf="@+id/addflowerItemBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

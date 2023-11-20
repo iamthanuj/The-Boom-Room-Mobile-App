@@ -26,10 +26,10 @@ public class UserLoginActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
 
-        loginUsername = findViewById(R.id.loginUsername);
-        loginPassword = findViewById(R.id.loginUserPassword);
+        loginUsername = findViewById(R.id.flowerNameValue);
+        loginPassword = findViewById(R.id.adminLoginPassword);
         createAccBtn = findViewById(R.id.createAccBtn);
-        userLoginBtn = findViewById(R.id.userLoginBtn);
+        userLoginBtn = findViewById(R.id.adminLoginBtn);
 
 
 
