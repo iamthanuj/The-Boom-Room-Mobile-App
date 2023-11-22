@@ -33,7 +33,13 @@ public class AdminPanelActivity extends AppCompatActivity {
 
 
         //view added flowers
-
+        viewAddedFlowersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ViewAddedFlowersActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
