@@ -27,7 +27,8 @@ public class ViewAddedFlowersActivity extends AppCompatActivity {
 
         List<Flower> flowerList = getFlowerListFromCursor(cursor);
 
-        FlowerAdapter flowerAdapter = new FlowerAdapter(this, flowerList);
+        FlowerAdapter flowerAdapter = new FlowerAdapter(this, flowerList, databaseHelper);
+
 
         listView.setAdapter(flowerAdapter);
 
