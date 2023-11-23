@@ -24,11 +24,11 @@ public class AddFlowersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_flowers);
 
 
-        flowerNameValue = findViewById(R.id.flowerNameValue);
-        flowerColorValue = findViewById(R.id.flowerColorValue);
-        flowerDescription = findViewById(R.id.flowerDescriptionValue);
-        flowerPriceValue = findViewById(R.id.flowerPriceValue);
-        addFlowerBtn = findViewById(R.id.addflowerItemBtn);
+        flowerNameValue = findViewById(R.id.update_name_edittext);
+        flowerColorValue = findViewById(R.id.update_color_edittext);
+        flowerDescription = findViewById(R.id.update_description_edittext);
+        flowerPriceValue = findViewById(R.id.update_price_edittext);
+        addFlowerBtn = findViewById(R.id.update_flower_details_btn);
 
         dbHelper = new DatabaseHelper(this);
 

@@ -1,6 +1,9 @@
 package com.example.thebloomroom;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -58,4 +61,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.delete("flowers", "flower_id=?", new String[]{String.valueOf(flowerId)});
         db.close();
     }
+
+
+    public void updateFlower(int flowerId, String updatedName, String updatedColor, String updatedDescription, String updatedPrice) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("flower_name", updatedName);
+        values.put("flower_color", updatedColor);
+        values.put("description", updatedDescription);
+        values.put("price", updatedPrice);
+
+        // Update the row with the specified flowerId
+        db.update("flowers", values, "flower_id=?", new String[]{String.valueOf(flowerId)});
+
+        // Close the database connection
+        db.close();
+    }
+
+
+    public Flower getFlowerById(int flowerId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Flower flower = null;
+
+        // Define the columns to be queried
+        String[] columns = {"flower_id", "flower_name", "flower_color", "description", "price"};
+
+        // Define the selection criteria
+        String selection = "flower_id" + " = ?";
+        String[] selectionArgs = {String.valueOf(flowerId)};
+
+        // Query the database
+        Cursor cursor = db.query("flowers", columns, selection, selectionArgs, null, null, null);
+
+        // Check if the cursor is not null and move it to the first row
+        if (cursor != null && cursor.moveToFirst()) {
+            // Extract flower details from the cursor
+            @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex("flower_name"));
+            @SuppressLint("Range") String color = cursor.getString(cursor.getColumnIndex("flower_color"));
+            @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+            @SuppressLint("Range") String price = cursor.getString(cursor.getColumnIndex("price"));
+
+            // Create a Flower object
+            flower = new Flower(flowerId, name, color, description, price);
+
+            // Close the cursor
+            cursor.close();
+        }
+
+        // Close the database connection
+        db.close();
+
+        // Return the Flower object
+        return flower;
+    }
+
+
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class FlowerAdapter extends BaseAdapter {
     private Context context;
     private List<Flower> flowerList;
     private DatabaseHelper databaseHelper;
+
 
     public FlowerAdapter(Context context, List<Flower> flowerList, DatabaseHelper databaseHelper) {
         this.context = context;
@@ -83,14 +85,18 @@ public class FlowerAdapter extends BaseAdapter {
 
                     }
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Update", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
+                        updateFlower(flowerId);
                         // User clicked the "Cancel" button
                         dialog.dismiss();
                     }
                 });
         builder.create().show();
     }
+
+
 
     private void deleteFlower(int flowerId) {
         // Perform the delete operation (remove the flower from the list and database)
@@ -108,6 +114,86 @@ public class FlowerAdapter extends BaseAdapter {
         // Show a toast or a message indicating that the flower has been deleted
         Toast.makeText(context, "Flower deleted", Toast.LENGTH_SHORT).show();
     }
+
+
+
+
+    private void updateFlower(int flowerId) {
+        // Assume you have a method in your DatabaseHelper
+        // class to retrieve the Flower object based on the flowerId.
+        Flower flowerToUpdate = databaseHelper.getFlowerById(flowerId);
+
+        if (flowerToUpdate == null) {
+            // Handle the case where the flower is not found in the database
+            Toast.makeText(context, "Error: Flower not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Create a dialog for updating the flower details.
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Update Flower Details");
+
+        // Inflate a layout for the dialog
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View updateView = inflater.inflate(R.layout.update_flower_dialog, null);
+
+        // Check if the layout inflation was successful
+        if (updateView == null) {
+            // Handle the case where the layout couldn't be inflated
+            Toast.makeText(context, "Error: Unable to inflate update dialog", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Reference the views in the dialog layout
+        EditText updateNameEditText = updateView.findViewById(R.id.update_name_edittext);
+        EditText updateColorEditText = updateView.findViewById(R.id.update_color_edittext);
+        EditText updateDescriptionEditText = updateView.findViewById(R.id.update_description_edittext);
+        EditText updatePriceEditText = updateView.findViewById(R.id.update_price_edittext);
+
+        // Populate the dialog views with the current flower details
+        updateNameEditText.setText(flowerToUpdate.getFlowerName());
+        updateColorEditText.setText(flowerToUpdate.getFlowerColor());
+        updateDescriptionEditText.setText(flowerToUpdate.getDescription());
+        updatePriceEditText.setText(flowerToUpdate.getPrice());
+
+        builder.setView(updateView);
+
+        builder.setPositiveButton("Save Changes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Update the flower details in the database
+                String updatedName = updateNameEditText.getText().toString();
+                String updatedColor = updateColorEditText.getText().toString();
+                String updatedDescription = updateDescriptionEditText.getText().toString();
+                String updatedPrice = updatePriceEditText.getText().toString();
+
+                // Assuming you have a method in your DatabaseHelper to update the flower
+                databaseHelper.updateFlower(flowerId, updatedName, updatedColor, updatedDescription, updatedPrice);
+
+                // Update the flower details in the flowerList
+                flowerToUpdate.setFlowerName(updatedName);
+                flowerToUpdate.setFlowerColor(updatedColor);
+                flowerToUpdate.setDescription(updatedDescription);
+                flowerToUpdate.setPrice(updatedPrice);
+
+
+                notifyDataSetChanged();
+
+                Toast.makeText(context, "Flower updated", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.create().show();
+    }
+
+
 
 
 
