@@ -37,6 +37,7 @@ public class AdminPanelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ViewAddedFlowersActivity.class);
+                intent.putExtra("userType", "ADMIN");
                 startActivity(intent);
             }
         });

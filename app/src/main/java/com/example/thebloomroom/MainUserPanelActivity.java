@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -12,6 +13,8 @@ public class MainUserPanelActivity extends AppCompatActivity {
 
     private TextView activeUserTextView;
     private ImageButton offerRosesBtn, offerTulipsBtn, offerOrchidsBtn;
+
+    private Button moreFlowersBtn, viewMyOrdersBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +27,13 @@ public class MainUserPanelActivity extends AppCompatActivity {
         activeUserTextView.setText("Hello There,"+activeUser);
 
 
+        moreFlowersBtn = findViewById(R.id.viewMoreFlowerBtn);
+        viewMyOrdersBtn = findViewById(R.id.viewOrderdItemsBtn);
+
         offerRosesBtn = findViewById(R.id.offerBtnOne);
         offerTulipsBtn = findViewById(R.id.offerBtnTwo);
         offerOrchidsBtn = findViewById(R.id.offerBtnThree);
+
 
 
         offerRosesBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +77,17 @@ public class MainUserPanelActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        moreFlowersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ViewAddedFlowersActivity.class);
+                intent.putExtra("userType", "CUSTOMER");
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -21,13 +21,15 @@ public class ViewAddedFlowersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_added_flowers);
 
+        String userType = getIntent().getStringExtra("userType");
+
         listView = findViewById(R.id.listViewAddedFlowers);
         databaseHelper = new DatabaseHelper(this);
         Cursor cursor = fetchDataFromDatabase();
 
         List<Flower> flowerList = getFlowerListFromCursor(cursor);
 
-        FlowerAdapter flowerAdapter = new FlowerAdapter(this, flowerList, databaseHelper);
+        FlowerAdapter flowerAdapter = new FlowerAdapter(this, flowerList, databaseHelper, userType);
 
 
         listView.setAdapter(flowerAdapter);

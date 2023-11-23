@@ -19,11 +19,14 @@ public class FlowerAdapter extends BaseAdapter {
     private List<Flower> flowerList;
     private DatabaseHelper databaseHelper;
 
+    private String userType;
 
-    public FlowerAdapter(Context context, List<Flower> flowerList, DatabaseHelper databaseHelper) {
+
+    public FlowerAdapter(Context context, List<Flower> flowerList, DatabaseHelper databaseHelper, String userType) {
         this.context = context;
         this.flowerList = flowerList;
         this.databaseHelper = databaseHelper;
+        this.userType = userType;
     }
 
 
@@ -54,12 +57,12 @@ public class FlowerAdapter extends BaseAdapter {
 
         // Bind data to the views in the list item layout
         TextView nameTextView = convertView.findViewById(R.id.item_name);
-//        TextView colorTextView = convertView.findViewById(R.id.colorTextView);
+        TextView colorTextView = convertView.findViewById(R.id.item_color);
         TextView descriptionTextView = convertView.findViewById(R.id.item_description);
         TextView priceTextView = convertView.findViewById(R.id.item_price);
 
         nameTextView.setText(flower.getFlowerName());
-//        colorTextView.setText(flower.getFlowerColor());
+        colorTextView.setText(flower.getFlowerColor());
         descriptionTextView.setText(flower.getDescription());
         priceTextView.setText(flower.getPrice());
 
@@ -76,24 +79,54 @@ public class FlowerAdapter extends BaseAdapter {
 
 
     private void showDeleteConfirmationDialog(final int flowerId) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("Are you sure you want to delete this flower?")
-                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked the "Delete" button
-                        deleteFlower(flowerId);
 
-                    }
-                })
-                .setNegativeButton("Update", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+        if(userType.equals("ADMIN")){
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("Are you sure you want to delete this flower?")
+                    .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User clicked the "Delete" button
+                            deleteFlower(flowerId);
 
-                        updateFlower(flowerId);
-                        // User clicked the "Cancel" button
-                        dialog.dismiss();
-                    }
-                });
-        builder.create().show();
+                        }
+                    })
+                    .setNegativeButton("Update", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            updateFlower(flowerId);
+                            // User clicked the "Cancel" button
+                            dialog.dismiss();
+                        }
+                    });
+            builder.create().show();
+        }
+
+        else if(userType.equals("CUSTOMER")){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("Are you want to Order this flower?")
+                    .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User clicked the "Delete" button
+//                            addFlowerToOrder(flowerId);
+
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            // User clicked the "Cancel" button
+                            dialog.dismiss();
+                        }
+                    });
+            builder.create().show();
+
+        }
+
+
+
+
+
     }
 
 
@@ -177,7 +210,7 @@ public class FlowerAdapter extends BaseAdapter {
                 flowerToUpdate.setPrice(updatedPrice);
 
 
-                notifyDataSetChanged();
+                notifyDataSetInvalidated();
 
                 Toast.makeText(context, "Flower updated", Toast.LENGTH_SHORT).show();
             }
