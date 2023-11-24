@@ -6,4 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".CategoryItemListActivity">
 
+    <TextView
+        android:id="@+id/categoryTitleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Fancy Birthday Bundle"
+        android:textColor="#231158"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="333dp"
+        android:layout_height="404dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryTitleTxt">
+
+        <ImageView
+            android:id="@+id/categoryBundleImage"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="44dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/birthday" />
+
+        <TextView
+            android:id="@+id/categoryBundlePrice"
+            android:layout_width="124dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="20dp"
+            android:background="#8BC34A"
+            android:text="3800 LKR"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/categoryBundleDescription"
+            app:layout_constraintStart_toStartOf="@+id/categoryBundleDescription"
+            app:layout_constraintTop_toBottomOf="@+id/categoryBundleDescription" />
+
+        <TextView
+            android:id="@+id/categoryBundleDescription"
+            android:layout_width="282dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="24dp"
+            android:text="Perfect for bringing joy and color to the special day"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/categoryBundleImage"
+            app:layout_constraintStart_toStartOf="@+id/categoryBundleImage"
+            app:layout_constraintTop_toBottomOf="@+id/categoryBundleImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/categoryOrderBtn"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#231158"
+        android:text="Order Bundle"
+        android:textSize="20sp"
+        app:cornerRadius="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+    <Button
+        android:id="@+id/categoryMainMenuBtn"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#231158"
+        android:text="Main Menu"
+        android:textSize="20sp"
+        app:cornerRadius="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/categoryOrderBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/categoryOrderBtn"
+        app:layout_constraintTop_toBottomOf="@+id/categoryOrderBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

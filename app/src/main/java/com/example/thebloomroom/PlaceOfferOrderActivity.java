@@ -29,15 +29,23 @@ public class PlaceOfferOrderActivity extends AppCompatActivity {
         offerPlaceOrderBtn = findViewById(R.id.offerPlaceOrderBtn);
         offerOrderCancelBtn = findViewById(R.id.offerOrderCancelBtn);
 
+        offerFlowerImageView = findViewById(R.id.offerOrderImage);
         offerFlowerNameTextView = findViewById(R.id.offerOrderProductName);
         offerFlowerDiscountTextView = findViewById(R.id.offerOrderDiscount);
         offerFlowerPriceTextView = findViewById(R.id.offerOrderPrice);
 
+
+
+        String offerFlowerImage = getIntent().getStringExtra("offerFlowerImage");
         String offerFlowerName = getIntent().getStringExtra("offerFlowerName");
         String offerFlowerDiscount = getIntent().getStringExtra("offerFlowerDiscount");
         String offerFlowerPrice = getIntent().getStringExtra("offerFlowerPrice");
         String activeCustomer = getIntent().getStringExtra("customerName");
 
+        int resourceId = getResources().getIdentifier(offerFlowerImage, "drawable", getPackageName());
+
+
+        offerFlowerImageView.setImageResource(resourceId);
         offerFlowerNameTextView.setText(offerFlowerName);
         offerFlowerDiscountTextView.setText(offerFlowerDiscount);
         offerFlowerPriceTextView.setText(offerFlowerPrice);
@@ -59,7 +67,6 @@ public class PlaceOfferOrderActivity extends AppCompatActivity {
                 DatabaseHelper databaseHelper = new DatabaseHelper(PlaceOfferOrderActivity.this);
 
                 showConfirmationDialog(databaseHelper,activeCustomer, offerFlowerName, offerFlowerPrice);
-//                databaseHelper.addOrder(activeCustomer, offerFlowerName, offerFlowerPrice, "Delivery Location");
 
             }
         });
