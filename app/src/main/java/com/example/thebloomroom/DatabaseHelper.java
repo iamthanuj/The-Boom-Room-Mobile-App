@@ -149,15 +149,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public List<Order> getAllOrders(String activeUser) {
+    public List<Order> getAllOrders(String activeUserName) {
         List<Order> orderList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         // Define the columns to be queried
         String[] columns = {"order_id", "customer_name", "item_name", "item_price", "order_location"};
 
+        // Define the selection criteria
+        String selection = null;
+        String[] selectionArgs = null;
+
+        // Check if the user is an admin
+        if (!activeUserName.equals("ADMIN")) {
+            // If not an admin, filter by the activeUserName
+            selection = "customer_name = ?";
+            selectionArgs = new String[]{activeUserName};
+        }
+
+
+
+
         // Query the "orders" table
-        try (Cursor cursor = db.query("orders", columns, null, null, null, null, null)) {
+        try (Cursor cursor = db.query("orders", columns, selection, selectionArgs, null, null, null)) {
             // Check if the cursor is not null and move it to the first row
             if (cursor != null && cursor.moveToFirst()) {
                 do {
@@ -174,6 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            // Log or handle the exception as needed
         } finally {
             db.close();
         }
@@ -184,3 +199,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 }
+
+

@@ -96,6 +96,17 @@ public class CreateUserAccountActivity extends AppCompatActivity {
                         msg = "Registration successful!";
                         Intent intent = new Intent(getApplicationContext(),UserLoginActivity.class);
                         startActivity(intent);
+
+                        editTxtFirstName.setText("");
+                        editTxtLastName.setText("");
+                        editTxtEmail.setText("");
+                        editTxtPhoneNum.setText("");
+                        editTxtAddress.setText("");
+                        editTxtPassword.setText("");
+                        editTxtConPassword.setText("");
+
+
+
                     }
                     else{
                         msg = "Registration failed!";

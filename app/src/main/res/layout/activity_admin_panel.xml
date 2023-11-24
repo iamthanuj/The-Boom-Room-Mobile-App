@@ -7,6 +7,33 @@
     tools:context=".AdminPanelActivity">
 
     <Button
+        android:id="@+id/addFlowersBtn"
+        android:layout_width="330dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#231158"
+        android:text="Add Flowers"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:text="Admin Panel"
+        android:textColor="#231158"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/viewActiveOrders"
         android:layout_width="330dp"
         android:layout_height="100dp"
@@ -34,30 +61,4 @@
         app:layout_constraintStart_toStartOf="@+id/addFlowersBtn"
         app:layout_constraintTop_toBottomOf="@+id/addFlowersBtn" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:text="Admin Panel"
-        android:textColor="#231158"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/addFlowersBtn"
-        android:layout_width="330dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="48dp"
-        android:backgroundTint="#231158"
-        android:text="Add Flowers"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,11 +37,12 @@
     <Button
         android:id="@+id/startBtn"
         android:layout_width="163dp"
-        android:layout_height="53dp"
+        android:layout_height="60dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#231158"
         android:text="Get Start"
         android:textSize="20sp"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -49,14 +50,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="283dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="286dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
         android:text="Step into The Bloom Room, your floral sanctuary! 🌸 Explore a world of blossoms with our Flower Shop app"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/orderItemName"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@+id/orderItemName"
         app:layout_constraintTop_toBottomOf="@+id/orderItemName" />
 

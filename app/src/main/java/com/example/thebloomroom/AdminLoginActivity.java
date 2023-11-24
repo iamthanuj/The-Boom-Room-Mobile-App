@@ -36,6 +36,8 @@ public class AdminLoginActivity extends AppCompatActivity {
                     msg = "login Successfully!";
                     Intent intent = new Intent(getApplicationContext(), AdminPanelActivity.class);
                     startActivity(intent);
+                    adminUsername.setText("");
+                    adminPassword.setText("");
                 }
                 else {
                     msg = "Invalid Credentials";

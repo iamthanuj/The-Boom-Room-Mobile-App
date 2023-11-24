@@ -3,6 +3,7 @@ package com.example.thebloomroom;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,13 +29,11 @@ public class ViewOrdersActivity extends AppCompatActivity {
 
         List<Order> orderList;
 
-        if(activeUser.equals("ADMIN")){
+        if(TextUtils.isEmpty(activeUser) || activeUser.equals("ADMIN")){
+            orderList = databaseHelper.getAllOrders(activeUser);
+        } else {
             orderList = databaseHelper.getAllOrders(activeUser);
         }
-        else {
-            orderList = databaseHelper.getAllOrders(activeUser);
-        }
-
 
 
 
