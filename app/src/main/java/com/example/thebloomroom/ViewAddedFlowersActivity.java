@@ -22,6 +22,7 @@ public class ViewAddedFlowersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_added_flowers);
 
         String userType = getIntent().getStringExtra("userType");
+        String activeUsername = getIntent().getStringExtra("customerUsername");
 
         listView = findViewById(R.id.listViewAddedFlowers);
         databaseHelper = new DatabaseHelper(this);
@@ -29,7 +30,7 @@ public class ViewAddedFlowersActivity extends AppCompatActivity {
 
         List<Flower> flowerList = getFlowerListFromCursor(cursor);
 
-        FlowerAdapter flowerAdapter = new FlowerAdapter(this, flowerList, databaseHelper, userType);
+        FlowerAdapter flowerAdapter = new FlowerAdapter(this, flowerList, databaseHelper, userType, activeUsername);
 
 
         listView.setAdapter(flowerAdapter);

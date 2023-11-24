@@ -20,13 +20,15 @@ public class FlowerAdapter extends BaseAdapter {
     private DatabaseHelper databaseHelper;
 
     private String userType;
+    private  String activeCusName;
 
 
-    public FlowerAdapter(Context context, List<Flower> flowerList, DatabaseHelper databaseHelper, String userType) {
+    public FlowerAdapter(Context context, List<Flower> flowerList, DatabaseHelper databaseHelper, String userType, String activeCusName) {
         this.context = context;
         this.flowerList = flowerList;
         this.databaseHelper = databaseHelper;
         this.userType = userType;
+        this.activeCusName = activeCusName;
     }
 
 
@@ -107,8 +109,8 @@ public class FlowerAdapter extends BaseAdapter {
             builder.setMessage("Are you want to Order this flower?")
                     .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            // User clicked the "Delete" button
-//                            addFlowerToOrder(flowerId);
+
+                            addFlowerToOrder(flowerId);
 
                         }
                     })
@@ -122,7 +124,6 @@ public class FlowerAdapter extends BaseAdapter {
             builder.create().show();
 
         }
-
 
 
 
@@ -228,6 +229,24 @@ public class FlowerAdapter extends BaseAdapter {
 
 
 
+
+
+    private void addFlowerToOrder(int flowerId) {
+        Flower selectedFlower = databaseHelper.getFlowerById(flowerId);
+
+        if (selectedFlower == null) {
+            Toast.makeText(context, "Error: Flower not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Get customer name (you might have to implement this based on your app's logic)
+//        String customerName = "John Doe";  // Replace with actual customer name retrieval logic
+
+        // Call the addOrder method in DatabaseHelper
+        databaseHelper.addOrder(activeCusName, selectedFlower.getFlowerName(), selectedFlower.getPrice(), "Delivery Address");
+
+        Toast.makeText(context, "Flower added to your order", Toast.LENGTH_SHORT).show();
+    }
 
 
 }

@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/orderItemName"
         android:layout_width="278dp"
         android:layout_height="117dp"
         android:layout_marginTop="16dp"
@@ -55,10 +55,10 @@
         android:text="Step into The Bloom Room, your floral sanctuary! 🌸 Explore a world of blossoms with our Flower Shop app"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/orderItemName"
         app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/orderItemName"
+        app:layout_constraintTop_toBottomOf="@+id/orderItemName" />
 
     <ImageView
         android:id="@+id/imageView4"

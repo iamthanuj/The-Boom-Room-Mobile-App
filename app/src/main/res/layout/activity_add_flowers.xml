@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Button
-        android:id="@+id/update_flower_details_btn"
+        android:id="@+id/offerPlaceOrderBtn"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="52dp"

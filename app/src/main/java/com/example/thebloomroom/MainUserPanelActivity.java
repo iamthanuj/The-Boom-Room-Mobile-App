@@ -44,7 +44,7 @@ public class MainUserPanelActivity extends AppCompatActivity {
                 intent.putExtra("offerFlowerName", "Rose Bouquet");
                 intent.putExtra("offerFlowerDiscount", "15% OFF");
                 intent.putExtra("offerFlowerPrice", "5000 LKR");
-
+                intent.putExtra("customerName ", activeUser);
                 startActivity(intent);
             }
         });
@@ -58,6 +58,7 @@ public class MainUserPanelActivity extends AppCompatActivity {
                 intent.putExtra("offerFlowerName", "Tulips Bouquet");
                 intent.putExtra("offerFlowerDiscount", "20% OFF");
                 intent.putExtra("offerFlowerPrice", "4400 LKR");
+                intent.putExtra("customerName", activeUser);
                 startActivity(intent);
             }
         });
@@ -73,6 +74,7 @@ public class MainUserPanelActivity extends AppCompatActivity {
                 intent.putExtra("offerFlowerName", "Orchids Bouquet");
                 intent.putExtra("offerFlowerDiscount", "10% OFF");
                 intent.putExtra("offerFlowerPrice", "5200 LKR");
+                intent.putExtra("customerName", activeUser);
                 startActivity(intent);
             }
         });
@@ -85,6 +87,18 @@ public class MainUserPanelActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ViewAddedFlowersActivity.class);
                 intent.putExtra("userType", "CUSTOMER");
+                intent.putExtra("customerUsername", activeUser);
+                startActivity(intent);
+            }
+        });
+
+
+
+        viewMyOrdersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ViewOrdersActivity.class);
+                intent.putExtra("activeUser", activeUser);
                 startActivity(intent);
             }
         });

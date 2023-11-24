@@ -28,7 +28,7 @@ public class AddFlowersActivity extends AppCompatActivity {
         flowerColorValue = findViewById(R.id.update_color_edittext);
         flowerDescription = findViewById(R.id.update_description_edittext);
         flowerPriceValue = findViewById(R.id.update_price_edittext);
-        addFlowerBtn = findViewById(R.id.update_flower_details_btn);
+        addFlowerBtn = findViewById(R.id.offerPlaceOrderBtn);
 
         dbHelper = new DatabaseHelper(this);
 
